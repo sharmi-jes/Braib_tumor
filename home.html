@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainScan AI - Revolutionizing Brain Tumor Detection</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            color: #ffffff;
+            background: linear-gradient(to bottom right, #4a1d96, #4338ca, #1e40af);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            margin-right: 0.5rem;
+        }
+
+        nav a {
+            color: #e5e7eb;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.875rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #a78bfa;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-left: 17%;
+            padding: 2rem 0;
+            animation: slideUp 1.5s ease-out;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 4rem;
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #a78bfa, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #e5e7eb;
+            margin-bottom: 2rem;
+            
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #8b5cf6;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #7c3aed;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #ffffff;
+            color: #4a1d96;
+        }
+
+        #features {
+            background-color: #1f2937;
+            padding: 5rem 0;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        .feature-card svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: #d1d5db;
+        }
+
+        #about {
+            padding: 5rem 0;
+            animation: slideUp 1.5s ease-out;
+        }
+
+        .about-content {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            color: #9ca3af;
+        }
+
+        footer a {
+            color: #9ca3af;
+            text-decoration: none;
+            margin-left: 1rem;
+            font-size: 0.875rem;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                color: #ffffff;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            nav {
+                display: none;
+            }
+
+            nav.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.9);
+                padding: 1rem;
+            }
+
+            nav.active a {
+                margin: 0.5rem 0;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            footer nav {
+                margin-top: 1rem;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21.54 15.18l-3.72-1.86a1 1 0 0 0-.9 0L13.2 15.18a1 1 0 0 1-.9 0L8.58 13.32a1 1 0 0 0-.9 0l-3.72 1.86a1 1 0 0 1-1.44-.9V6.44a1 1 0 0 1 .54-.9l3.72-1.86a1 1 0 0 1 .9 0l3.72 1.86a1 1 0 0 0 .9 0l3.72-1.86a1 1 0 0 1 .9 0l3.72 1.86a1 1 0 0 1 .54.9v7.84a1 1 0 0 1-1.44.9z"></path>
+                    </svg>
+                    BrainScan DL
+                </a>
+                <nav>
+                    <a href="#features">Features</a>
+                    <a href="#about">About</a>
+                </nav>
+                <button class="mobile-menu-btn">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Revolutionizing Brain Tumor Detection with Deep Learning</h1>
+                    <p>BrainScan DL uses state-of-the-art deep learning models to provide fast, accurate, and reliable brain tumor detection.</p>
+                    <a href="/predict" class="btn btn-primary">Get Started</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <h2>Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 12l-8-8m0 0L3 4m-1 3l8 8m0 0l3-3"></path>
+                        </svg>
+                        <h3>AI-powered Diagnosis</h3>
+                        <p>Leverage the latest AI technology for accurate diagnosis and fast results.</p>
+                    </div>
+                    <div class="feature-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 6L9 17l-5-5"></path>
+                        </svg>
+                        <h3>Real-time Detection</h3>
+                        <p>Detect brain tumors in real-time with high precision and minimal delay.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <div class="about-content">
+                    <h2>About BrainScan DL</h2>
+                    <p>BrainScan DL uses deep learning models trained on a vast dataset of brain scans to accurately detect various types of brain tumors.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 BrainScan AI. All Rights Reserved.</p>
+                <nav>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
+            document.querySelector('nav').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+
